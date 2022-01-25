@@ -57,39 +57,34 @@ navbar_list.appendChild(fragment);
 
 // function "scroll" and section in scoop 
 
- const active= window.addEventListener("scroll",()=> {
-    
-  allsections.forEach ((section) =>{
+const active =
+   window.addEventListener ("scroll",  ()=>{
+  
+  allsections.forEach( (section)=> {
+  const rect= section.getBoundingClientRect();
+  
+    if (rect.top > 0 && rect.top < 300){
       
-  const rect = selection.getBoundingClientRect();
-     if(rect.top>0 && rect.top <300){
-         
- const nav= section.getAttribute("data-nav");
-      
- allsections.forEach((active)=>{
- active.classList.remove('your-active-class');   
-         })
-      
- section.classList.add('your-active-class');      
-         
+      const nav = section.getAttribute("data-nav");
+      allsections.forEach((active)=>{
+        active.classList.remove('your-active-class');
+      })
+      section.classList.add('your-active-class');
 // function active link         
-     
-  const alllinks = document.querySelectorAll("a");
-  alllinks.forEach((link)=>{
-      
-     if(link.innerText == nav)
-    {
-        alllinks.forEach((link)=>{
-            
-  link.classList.remove('your-active-class');
-    })
-        
- link.classList.add('your-active-class');         
-    }
- })
-  }
- });
-})
-   
+    
+       const allLinks = document.querySelectorAll("a");
+      allLinks.forEach ( (link)=>{
 
+       if (link.innerText == nav) {
+         allLinks.forEach ((llink)=>{
+          llink.classList.remove('your-active-class');
+         })
+          link.classList.add('your-active-class');
+         }
+         
+      })
+  }
+  });
+})
+ 
 
